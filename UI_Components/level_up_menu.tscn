@@ -1,0 +1,77 @@
+[gd_scene load_steps=8 format=3 uid="uid://ds1wu8dy7hei8"]
+
+[ext_resource type="FontFile" uid="uid://uprfc0xym5b4" path="res://Assets/Encode_Sans_SC/static/EncodeSansSC-Black.ttf" id="1_e2wjn"]
+[ext_resource type="Script" uid="uid://bl6wekxw2cbig" path="res://UI_Components/level_up_menu.gd" id="2_2d4u4"]
+[ext_resource type="Shader" uid="uid://c7rb8ed3iiudx" path="res://UI_Components/game_over_menu.tres" id="3_vwhv7"]
+
+[sub_resource type="Theme" id="Theme_u8qm2"]
+default_font = ExtResource("1_e2wjn")
+default_font_size = 64
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_axrkq"]
+shader = ExtResource("3_vwhv7")
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_hef0v"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_jm6vn"]
+font_size = 96
+
+[node name="LevelUpMenu" type="Control" groups=["LevelUpMenu"]]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 0.000546182
+theme = SubResource("Theme_u8qm2")
+script = ExtResource("2_2d4u4")
+
+[node name="BackgroundBlur" type="TextureRect" parent="."]
+material = SubResource("ShaderMaterial_axrkq")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("PlaceholderTexture2D_hef0v")
+
+[node name="Container" type="Container" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 151.0
+grow_horizontal = 2
+theme_override_constants/separation = 33
+
+[node name="Label" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+text = "Level Up!"
+label_settings = SubResource("LabelSettings_jm6vn")
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/separation = 30
+
+[node name="Container" type="Container" parent="VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(300, 450)
+layout_mode = 2
+
+[node name="Container2" type="Container" parent="VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(300, 450)
+layout_mode = 2
+
+[node name="Container3" type="Container" parent="VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(300, 450)
+layout_mode = 2

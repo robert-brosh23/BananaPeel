@@ -1,0 +1,49 @@
+[gd_scene load_steps=3 format=3 uid="uid://cla1cjopywul6"]
+
+[ext_resource type="Script" path="res://UI_Components/Choice.gd" id="1_6hpyf"]
+[ext_resource type="Texture2D" uid="uid://cycweeme8kj77" path="res://icon.svg" id="2_jwkq8"]
+
+[node name="Choice" type="Button"]
+custom_minimum_size = Vector2(300, 450)
+size_flags_horizontal = 4
+size_flags_vertical = 6
+icon_alignment = 1
+script = ExtResource("1_6hpyf")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 36
+theme_override_constants/margin_right = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 18
+
+[node name="CenterContainer" type="CenterContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/CenterContainer"]
+layout_mode = 2
+texture = ExtResource("2_jwkq8")
+
+[node name="Title" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+text = "No Upgrade"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="Details" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "No upgrade :("
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]

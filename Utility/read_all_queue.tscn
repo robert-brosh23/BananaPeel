@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dqw20rgpf3jor"]
+
+[ext_resource type="Script" uid="uid://dllcktggtggs6" path="res://read_all_queue.gd" id="1_tvkv2"]
+
+[node name="ReadAllQueue" type="Node"]
+script = ExtResource("1_tvkv2")

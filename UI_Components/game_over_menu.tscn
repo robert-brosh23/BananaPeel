@@ -1,0 +1,68 @@
+[gd_scene load_steps=8 format=3 uid="uid://b6sws06vx86x7"]
+
+[ext_resource type="FontFile" uid="uid://uprfc0xym5b4" path="res://Assets/Encode_Sans_SC/static/EncodeSansSC-Black.ttf" id="1_s67a3"]
+[ext_resource type="Script" uid="uid://bq1hxowe4tvs0" path="res://UI_Components/game_over_menu.gd" id="2_myjqi"]
+[ext_resource type="Shader" uid="uid://c7rb8ed3iiudx" path="res://UI_Components/game_over_menu.tres" id="3_qa1h3"]
+
+[sub_resource type="Theme" id="Theme_u8qm2"]
+default_font = ExtResource("1_s67a3")
+default_font_size = 64
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_axrkq"]
+shader = ExtResource("3_qa1h3")
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_hef0v"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_jm6vn"]
+font_size = 96
+
+[node name="GameOverMenu" type="Control" groups=["GameOverMenu"]]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 0.000546182
+theme = SubResource("Theme_u8qm2")
+script = ExtResource("2_myjqi")
+
+[node name="BackgroundBlur" type="TextureRect" parent="."]
+material = SubResource("ShaderMaterial_axrkq")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("PlaceholderTexture2D_hef0v")
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
+custom_minimum_size = Vector2(512, 0)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+text = "you  dead"
+label_settings = SubResource("LabelSettings_jm6vn")
+horizontal_alignment = 1
+
+[node name="RestartButton" type="Button" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+text = "again"
+
+[node name="QuitButton" type="Button" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+text = "i'm done"
+
+[connection signal="pressed" from="CenterContainer/VBoxContainer/RestartButton" to="." method="_on_restart_button_pressed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]

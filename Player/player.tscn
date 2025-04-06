@@ -1,0 +1,59 @@
+[gd_scene load_steps=9 format=3 uid="uid://7qgqljsaajyb"]
+
+[ext_resource type="Script" uid="uid://cfgjfh4p4qti" path="res://Player/player.gd" id="1_4ntmi"]
+[ext_resource type="Texture2D" uid="uid://bxy5inm42e7p0" path="res://Assets/sprite_sheet.png" id="1_l8h54"]
+[ext_resource type="PackedScene" uid="uid://c18707hfscfnt" path="res://Player/Attack/BasicSliceAttack/basic_slice_attack.tscn" id="3_btcbx"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4ntmi"]
+atlas = ExtResource("1_l8h54")
+region = Rect2(0, 0, 464, 686)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_btcbx"]
+atlas = ExtResource("1_l8h54")
+region = Rect2(464, 0, 464, 686)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gwnis"]
+atlas = ExtResource("1_l8h54")
+region = Rect2(928, 0, 464, 686)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_k53q1"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4ntmi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_btcbx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gwnis")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_fhl08"]
+radius = 154.0
+height = 600.0
+
+[node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("attack") groups=["player"]]
+scale = Vector2(0.2, 0.2)
+collision_layer = 16
+motion_mode = 1
+script = ExtResource("1_4ntmi")
+speed = 1000.0
+attack = NodePath("Attack")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(1, 0)
+sprite_frames = SubResource("SpriteFrames_k53q1")
+animation = &"walk"
+autoplay = "walk"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(8, 4)
+shape = SubResource("CapsuleShape2D_fhl08")
+
+[node name="Attack" parent="." instance=ExtResource("3_btcbx")]
+attack_cooldown = 1.0

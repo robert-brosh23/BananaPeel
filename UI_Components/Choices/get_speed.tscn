@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://co45ffmfryuiw"]
+
+[ext_resource type="PackedScene" uid="uid://cla1cjopywul6" path="res://UI_Components/Choice.tscn" id="1_exirr"]
+[ext_resource type="Script" uid="uid://dhxe7bueeeq5e" path="res://UI_Components/Choices/get_speed.gd" id="2_bdtoc"]
+[ext_resource type="Texture2D" uid="uid://dg2ul2dqriq2a" path="res://Assets/2d_Sprites/genericItem_color_124.png" id="3_faonh"]
+
+[node name="Choice" instance=ExtResource("1_exirr")]
+script = ExtResource("2_bdtoc")
+
+[node name="TextureRect" parent="MarginContainer/VBoxContainer/CenterContainer" index="0"]
+texture = ExtResource("3_faonh")
+
+[node name="Title" parent="MarginContainer/VBoxContainer" index="1"]
+text = "Caffeine"
+
+[node name="Details" parent="MarginContainer/VBoxContainer" index="2"]
+text = "Increase your movement speed"

@@ -1,0 +1,25 @@
+[gd_scene load_steps=6 format=3 uid="uid://bpk3qmwysh4ll"]
+
+[ext_resource type="PackedScene" uid="uid://7qgqljsaajyb" path="res://Player/player.tscn" id="1_ig7tw"]
+[ext_resource type="PackedScene" uid="uid://btjyi5runam8l" path="res://Enemy/EnemySpawner/enemy_spawner.tscn" id="2_0xm2m"]
+[ext_resource type="Script" uid="uid://bjn6hpk41feng" path="res://camera_2d.gd" id="2_h2yge"]
+[ext_resource type="PackedScene" uid="uid://ds1wu8dy7hei8" path="res://UI_Components/level_up_menu.tscn" id="4_lquwl"]
+[ext_resource type="PackedScene" uid="uid://b6sws06vx86x7" path="res://UI_Components/game_over_menu.tscn" id="5_7mycd"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Player" parent="." instance=ExtResource("1_ig7tw")]
+speed = 300.0
+
+[node name="Camera2D" type="Camera2D" parent="."]
+script = ExtResource("2_h2yge")
+
+[node name="EnemySpawner" parent="." node_paths=PackedStringArray("player") instance=ExtResource("2_0xm2m")]
+player = NodePath("../Player")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="GameOverMenu" parent="CanvasLayer" instance=ExtResource("5_7mycd")]
+visible = false
+
+[node name="LevelUpMenu" parent="CanvasLayer" instance=ExtResource("4_lquwl")]

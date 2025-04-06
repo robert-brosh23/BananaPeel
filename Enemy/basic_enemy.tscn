@@ -1,0 +1,31 @@
+[gd_scene load_steps=6 format=3 uid="uid://dhq5e7x50yy48"]
+
+[ext_resource type="Script" uid="uid://cw5tlda5vkamx" path="res://Enemy/basic_enemy.gd" id="1_c5t6j"]
+[ext_resource type="Texture2D" uid="uid://cl3akksle11vt" path="res://Assets/basic_enemy.png" id="2_w27s0"]
+[ext_resource type="PackedScene" uid="uid://gdei2nsvuf6g" path="res://Hitbox/hitbox.tscn" id="3_x0dyy"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_47ljh"]
+radius = 204.519
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_gjeuv"]
+radius = 206.061
+
+[node name="basic_enemy" type="CharacterBody2D"]
+scale = Vector2(0.2, 0.2)
+collision_layer = 16
+collision_mask = 256
+script = ExtResource("1_c5t6j")
+max_health = 3
+experience_given = 25
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_w27s0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_47ljh")
+
+[node name="Hitbox" parent="." instance=ExtResource("3_x0dyy")]
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+shape = SubResource("CircleShape2D_gjeuv")
