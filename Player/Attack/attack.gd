@@ -26,7 +26,7 @@ func attack():
 	attack_timer.wait_time = attack_cooldown
 	attack_animation_player.speed_scale = attack_speed
 	attack_timer.start()
-	hurtbox.setId(Time.get_unix_time_from_system() * 1000 + (randi() % 1000))
+	hurtbox.setId(Time.get_unix_time_from_system() + (randi() % 1000))
 	attack_animation_player.play("attack")
 	
 func direct_weapon():

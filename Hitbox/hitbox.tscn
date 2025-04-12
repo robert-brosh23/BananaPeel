@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://gdei2nsvuf6g"]
 
 [ext_resource type="Script" uid="uid://b7fvm6ke1vq2a" path="res://Hitbox/hitbox.gd" id="1_p7cpr"]
-[ext_resource type="PackedScene" uid="uid://dqw20rgpf3jor" path="res://Utility/read_all_queue.tscn" id="2_l2ejj"]
+[ext_resource type="PackedScene" uid="uid://dqw20rgpf3jor" path="res://Utility/ReadAllQueue/read_all_queue.tscn" id="2_l2ejj"]
 
 [node name="Hitbox" type="Area2D" node_paths=PackedStringArray("read_all_queue")]
 collision_mask = 0

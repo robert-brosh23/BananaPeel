@@ -1,0 +1,7 @@
+[gd_scene load_steps=3 format=3 uid="uid://dy55f1uk7t6oo"]
+
+[ext_resource type="PackedScene" uid="uid://fpc4vtdwsnr8" path="res://Utility/StateMachine/State/state.tscn" id="1_hoka7"]
+[ext_resource type="Script" uid="uid://eqpsvje8i1bb" path="res://Enemy/EnemyState/EnemyFollowState/enemy_follow_state.gd" id="2_c5mjb"]
+
+[node name="EnemyFollowState" instance=ExtResource("1_hoka7")]
+script = ExtResource("2_c5mjb")

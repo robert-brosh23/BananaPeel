@@ -34,26 +34,26 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("../Hurtbox/CollisionShape2D:position")
+tracks/2/path = NodePath("../Hurtbox:monitoring")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(-120, -498)]
+"update": 1,
+"values": [true]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("../Hurtbox:monitoring")
+tracks/3/path = NodePath("../Hurtbox/CollisionShape2D:position")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
+"update": 0,
+"values": [Vector2(-212.5, -331.25)]
 }
 
 [sub_resource type="Animation" id="Animation_3hlrl"]
@@ -86,26 +86,26 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("../Hurtbox/CollisionShape2D:position")
+tracks/2/path = NodePath("../Hurtbox:monitoring")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.0333333, 0.1),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Vector2(-271, -334), Vector2(-128, -493), Vector2(147, -524)]
+"times": PackedFloat32Array(0, 0.166667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("../Hurtbox:monitoring")
+tracks/3/path = NodePath("../Hurtbox/CollisionShape2D:position")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [true, false]
+"times": PackedFloat32Array(0, 0.0333333, 0.1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(-212.5, -331.25), Vector2(-150, -412.5), Vector2(118.75, -462.5)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_chgeh"]
@@ -138,7 +138,7 @@ libraries = {
 [node name="Hurtbox" parent="." index="1" instance=ExtResource("4_rr44b")]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox" index="0"]
-position = Vector2(-120, -498)
+position = Vector2(-212.5, -331.25)
 rotation = -1.64972
 shape = SubResource("CircleShape2D_rr44b")
 debug_color = Color(0.939095, 0.220943, 0.291559, 0.42)

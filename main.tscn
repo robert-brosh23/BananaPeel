@@ -12,6 +12,7 @@
 speed = 300.0
 
 [node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(0, 1)
 script = ExtResource("2_h2yge")
 
 [node name="EnemySpawner" parent="." node_paths=PackedStringArray("player") instance=ExtResource("2_0xm2m")]
@@ -23,3 +24,4 @@ player = NodePath("../Player")
 visible = false
 
 [node name="LevelUpMenu" parent="CanvasLayer" instance=ExtResource("4_lquwl")]
+visible = false

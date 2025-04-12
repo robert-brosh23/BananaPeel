@@ -1,8 +1,13 @@
-[gd_scene load_steps=6 format=3 uid="uid://dhq5e7x50yy48"]
+[gd_scene load_steps=15 format=3 uid="uid://dhq5e7x50yy48"]
 
 [ext_resource type="Script" uid="uid://cw5tlda5vkamx" path="res://Enemy/basic_enemy.gd" id="1_c5t6j"]
 [ext_resource type="Texture2D" uid="uid://cl3akksle11vt" path="res://Assets/basic_enemy.png" id="2_w27s0"]
 [ext_resource type="PackedScene" uid="uid://gdei2nsvuf6g" path="res://Hitbox/hitbox.tscn" id="3_x0dyy"]
+[ext_resource type="PackedScene" uid="uid://rbpv2yyecy83" path="res://Utility/StateMachine/state_matchine.tscn" id="4_x0dyy"]
+[ext_resource type="PackedScene" uid="uid://dy55f1uk7t6oo" path="res://Enemy/EnemyState/EnemyFollowState/enemy_follow_state.tscn" id="5_47ljh"]
+[ext_resource type="PackedScene" uid="uid://c5hqeht66kii5" path="res://Enemy/EnemyState/EnemyAttackState/enemy_attack_state.tscn" id="6_47ljh"]
+[ext_resource type="Texture2D" uid="uid://b6ta3re42uqyi" path="res://Assets/basic_slice_attack_sprite_sheet.png" id="7_f46gi"]
+[ext_resource type="PackedScene" uid="uid://clt4igska5i10" path="res://Hurtbox/hurtbox.tscn" id="8_0ecbd"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_47ljh"]
 radius = 204.519
@@ -10,9 +15,120 @@ radius = 204.519
 [sub_resource type="CircleShape2D" id="CircleShape2D_gjeuv"]
 radius = 206.061
 
+[sub_resource type="Animation" id="Animation_0v2q8"]
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../Hurtbox:monitoring")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../Hurtbox/CollisionShape2D:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-212.5, -331.25)]
+}
+
+[sub_resource type="Animation" id="Animation_3hlrl"]
+resource_name = "attack"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.24),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0, 4]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../Hurtbox:monitoring")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.166667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../Hurtbox/CollisionShape2D:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.0333333, 0.1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(-212.5, -331.25), Vector2(-150, -412.5), Vector2(118.75, -462.5)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_chgeh"]
+_data = {
+&"RESET": SubResource("Animation_0v2q8"),
+&"attack": SubResource("Animation_3hlrl")
+}
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_f46gi"]
+
 [node name="basic_enemy" type="CharacterBody2D"]
 scale = Vector2(0.2, 0.2)
-collision_layer = 16
+collision_layer = 272
 collision_mask = 256
 script = ExtResource("1_c5t6j")
 max_health = 3
@@ -22,10 +138,48 @@ experience_given = 25
 texture = ExtResource("2_w27s0")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
 shape = SubResource("CircleShape2D_47ljh")
 
 [node name="Hitbox" parent="." instance=ExtResource("3_x0dyy")]
 collision_layer = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+visible = false
 shape = SubResource("CircleShape2D_gjeuv")
+
+[node name="StateMatchine" parent="." node_paths=PackedStringArray("ready_state") instance=ExtResource("4_x0dyy")]
+ready_state = NodePath("EnemyFollowState")
+
+[node name="EnemyFollowState" parent="StateMatchine" node_paths=PackedStringArray("enemy") instance=ExtResource("5_47ljh")]
+enemy = NodePath("../..")
+
+[node name="EnemyAttackState" parent="StateMatchine" node_paths=PackedStringArray("enemy") instance=ExtResource("6_47ljh")]
+enemy = NodePath("../..")
+
+[node name="Attack" type="Node2D" parent="."]
+scale = Vector2(0.8, 0.8)
+
+[node name="Sprite2D" type="Sprite2D" parent="Attack"]
+visible = false
+position = Vector2(-40, -267)
+scale = Vector2(1.42672, 1.42672)
+texture = ExtResource("7_f46gi")
+hframes = 3
+vframes = 2
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Attack/Sprite2D"]
+libraries = {
+&"": SubResource("AnimationLibrary_chgeh")
+}
+
+[node name="Hurtbox" parent="Attack" instance=ExtResource("8_0ecbd")]
+collision_mask = 512
+damage = 10
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Attack/Hurtbox"]
+position = Vector2(-212.5, -331.25)
+rotation = -1.73101
+scale = Vector2(-9.45095, -9.45095)
+shape = SubResource("CircleShape2D_f46gi")
+debug_color = Color(0.939095, 0.220943, 0.291559, 0.42)
