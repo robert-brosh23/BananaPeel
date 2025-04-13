@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://ursjlsvn43bm"]
+
+[ext_resource type="Script" uid="uid://dnsw40aqyk0mf" path="res://Player/Augment/on_hit_bonus.gd" id="1_hoipm"]
+
+[node name="OnHitBonus" type="Node"]
+script = ExtResource("1_hoipm")

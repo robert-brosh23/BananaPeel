@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://cla1cjopywul6"]
 
-[ext_resource type="Script" path="res://UI_Components/Choice.gd" id="1_6hpyf"]
-[ext_resource type="Texture2D" uid="uid://cycweeme8kj77" path="res://icon.svg" id="2_jwkq8"]
+[ext_resource type="Script" uid="uid://cw2dwuphxqxai" path="res://UI_Components/Choice.gd" id="1_6hpyf"]
+[ext_resource type="Texture2D" uid="uid://diam76c4d8177" path="res://icon.svg" id="2_jwkq8"]
 
 [node name="Choice" type="Button"]
 custom_minimum_size = Vector2(300, 450)

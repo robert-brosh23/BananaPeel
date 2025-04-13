@@ -45,9 +45,6 @@ func process_controls():
 		velocity.x = speed
 	else:
 		velocity.x = 0
-		
-	if attack:
-		attack.attack()
 	
 	if velocity.x != 0 and velocity.y != 0:
 		velocity.x *= 0.7071

@@ -1,0 +1,19 @@
+[gd_scene load_steps=5 format=3 uid="uid://csvhhhbft61s1"]
+
+[ext_resource type="PackedScene" uid="uid://cla1cjopywul6" path="res://UI_Components/Choice.tscn" id="1_sprto"]
+[ext_resource type="Script" uid="uid://cjj1im3wg7lre" path="res://UI_Components/Choices/get_focus.gd" id="2_0fer7"]
+[ext_resource type="PackedScene" uid="uid://ursjlsvn43bm" path="res://Player/Augment/on_hit_bonus.tscn" id="3_0fer7"]
+[ext_resource type="Texture2D" uid="uid://cnbprxn5byatq" path="res://Assets/2d_Sprites/genericItem_color_001.png" id="3_jk2u0"]
+
+[node name="FocusChoice" instance=ExtResource("1_sprto")]
+script = ExtResource("2_0fer7")
+on_hit_buff = ExtResource("3_0fer7")
+
+[node name="TextureRect" parent="MarginContainer/VBoxContainer/CenterContainer" index="0"]
+texture = ExtResource("3_jk2u0")
+
+[node name="Title" parent="MarginContainer/VBoxContainer" index="1"]
+text = "Focus"
+
+[node name="Details" parent="MarginContainer/VBoxContainer" index="2"]
+text = "Stack attack speed with each hit, lose it if you miss"
