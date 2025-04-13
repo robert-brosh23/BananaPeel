@@ -11,12 +11,12 @@ func _ready() -> void:
 	
 	attack_delay_timer = Timer.new()
 	attack_delay_timer.one_shot = true
-	attack_delay_timer.wait_time = enemy.attack_cooldown*.66
+	attack_delay_timer.wait_time = enemy.get_attack_cooldown()*.66
 	add_child(attack_delay_timer)
 	
 	attack_recoil_timer = Timer.new()
 	attack_recoil_timer.one_shot = true
-	attack_recoil_timer.wait_time = enemy.attack_cooldown*.33
+	attack_recoil_timer.wait_time = enemy.get_attack_cooldown()*.33
 	attack_recoil_timer.timeout.connect(recoil_finished)
 	add_child(attack_recoil_timer)
 

@@ -1,0 +1,147 @@
+[gd_scene load_steps=9 format=3 uid="uid://bi5ictmlfutc3"]
+
+[ext_resource type="Script" uid="uid://cbpxbdanmvv3g" path="res://Enemy/EnemyAttack/EnemySliceAttack/enemy_slice_attack.gd" id="1_0ccvt"]
+[ext_resource type="PackedScene" uid="uid://diit3qmtegba5" path="res://Enemy/EnemyAttack/enemy_attack.tscn" id="1_u30db"]
+[ext_resource type="Texture2D" uid="uid://b6ta3re42uqyi" path="res://Assets/basic_slice_attack_sprite_sheet.png" id="2_u30db"]
+[ext_resource type="PackedScene" uid="uid://clt4igska5i10" path="res://Hurtbox/hurtbox.tscn" id="3_spb6a"]
+
+[sub_resource type="Animation" id="Animation_0v2q8"]
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../Hurtbox:monitoring")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../Hurtbox/CollisionShape2D:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-212.5, -331.25)]
+}
+
+[sub_resource type="Animation" id="Animation_3hlrl"]
+resource_name = "attack"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.24),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0, 4]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../Hurtbox:monitoring")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.166667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../Hurtbox/CollisionShape2D:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.0333333, 0.1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(-212.5, -331.25), Vector2(-150, -412.5), Vector2(118.75, -462.5)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_chgeh"]
+_data = {
+&"RESET": SubResource("Animation_0v2q8"),
+&"attack": SubResource("Animation_3hlrl")
+}
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_spb6a"]
+
+[node name="EnemySliceAttack" node_paths=PackedStringArray("attack_animation_player", "hurtbox") instance=ExtResource("1_u30db")]
+visible = true
+script = ExtResource("1_0ccvt")
+attack_animation_player = NodePath("Sprite2D/AnimationPlayer")
+hurtbox = NodePath("Hurtbox")
+
+[node name="Sprite2D" type="Sprite2D" parent="." index="0"]
+visible = false
+position = Vector2(-40, -267)
+scale = Vector2(1.42672, 1.42672)
+texture = ExtResource("2_u30db")
+hframes = 3
+vframes = 2
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Sprite2D" index="0"]
+libraries = {
+&"": SubResource("AnimationLibrary_chgeh")
+}
+
+[node name="Hurtbox" parent="." index="1" instance=ExtResource("3_spb6a")]
+collision_mask = 512
+damage = 10
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox" index="0"]
+position = Vector2(-212.5, -331.25)
+rotation = -1.73101
+scale = Vector2(-9.45095, -9.45095)
+shape = SubResource("CircleShape2D_spb6a")
+debug_color = Color(0.939095, 0.220943, 0.291559, 0.42)

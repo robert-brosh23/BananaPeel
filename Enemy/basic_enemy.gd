@@ -4,13 +4,12 @@ signal Defeated(experience)
 
 @export var max_health: int
 @export var experience_given: int
-@export var attack_cooldown = 1.0
 
 @onready var state_machine = $StateMatchine
 @onready var enemy_follow_state = $StateMatchine/EnemyFollowState
 @onready var attack_animation_player = $Attack/Sprite2D/AnimationPlayer
 @onready var hurtbox = $Attack/Hurtbox
-@onready var attack = $Attack
+@export var attack: enemy_attack
 @onready var spriteBody = $Sprite2D
 
 var health: int
@@ -34,23 +33,11 @@ func TakeDamage(damaged: int) -> void:
 		emit_signal("Defeated", experience_given)
 		queue_free()
 		
+func get_attack_cooldown() -> float:
+	return attack.attack_cooldown
+	
 func try_attack():
-	if !attack_animation_player || !hurtbox:
-		print("The animation player or hurtbox is misconfigured.")
-		return
-	var attack_speed = calculate_attack_speed()
-	direct_weapon()
-	attack_animation_player.speed_scale = attack_speed
-	hurtbox.setId(Time.get_unix_time_from_system() * 1000 + (randi() % 1000))
-	attack_animation_player.play("attack")
-	
-func direct_weapon():
-	var direction = (player.position - position).angle()
-	attack.rotation = direction + PI/2
-	
-func calculate_attack_speed():
-	# Attack animation should take up 3/10 of the total attack cooldown.
-	return .3 / (attack_cooldown * 3 / 10)
+	attack.attack()
 
 func play_take_damage_visual_effect():
 	spriteBody.modulate = Color(255,255,1.0,1.0)
