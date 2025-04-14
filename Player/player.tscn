@@ -38,13 +38,14 @@ animations = [{
 radius = 154.0
 height = 600.0
 
-[node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("attack") groups=["player"]]
+[node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("attack", "hitbox") groups=["player"]]
 scale = Vector2(0.2, 0.2)
 collision_layer = 16
 motion_mode = 1
 script = ExtResource("1_4ntmi")
 speed = 1000.0
 attack = NodePath("Attack")
+hitbox = NodePath("Hitbox")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(1, 0)

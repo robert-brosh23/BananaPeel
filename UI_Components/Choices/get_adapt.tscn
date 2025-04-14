@@ -1,0 +1,19 @@
+[gd_scene load_steps=5 format=3 uid="uid://xayu0m0hwvj5"]
+
+[ext_resource type="PackedScene" uid="uid://cla1cjopywul6" path="res://UI_Components/Choice.tscn" id="1_wb6ew"]
+[ext_resource type="Script" uid="uid://b7e6imaao2lly" path="res://UI_Components/Choices/get_adapt.gd" id="2_wb6ew"]
+[ext_resource type="PackedScene" uid="uid://cplgguvb6prmv" path="res://Player/Augment/invincible_when_damaged.tscn" id="3_bam2f"]
+[ext_resource type="Texture2D" uid="uid://lfr86rv1rtl8" path="res://Assets/2d_Sprites/genericItem_color_104.png" id="3_xyfnx"]
+
+[node name="AdaptChoice" instance=ExtResource("1_wb6ew")]
+script = ExtResource("2_wb6ew")
+invincible_when_damaged_scene = ExtResource("3_bam2f")
+
+[node name="TextureRect" parent="MarginContainer/VBoxContainer/CenterContainer" index="0"]
+texture = ExtResource("3_xyfnx")
+
+[node name="Title" parent="MarginContainer/VBoxContainer" index="1"]
+text = "Adapt"
+
+[node name="Details" parent="MarginContainer/VBoxContainer" index="2"]
+text = "Briefly become invincible after taking damage"

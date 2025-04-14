@@ -28,6 +28,7 @@ func upgradeChosen() -> void:
 func initializeUpgrades() -> void:
 	upgrades.append(preload("res://UI_Components/Choices/get_speed.tscn"))
 	upgrades.append(preload("res://UI_Components/Choices/get_focus.tscn"))
+	upgrades.append(preload("res://UI_Components/Choices/get_adapt.tscn"))
 	
 func loadRandomUpgrade() -> Choice:
 	var numUpgrades = upgrades.size()

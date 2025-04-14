@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://cplgguvb6prmv"]
+
+[ext_resource type="Script" uid="uid://cnhek2fwptc7c" path="res://Player/Augment/invincible_when_damaged.gd" id="1_cberm"]
+
+[node name="InvincibleWhenDamaged" type="Node"]
+script = ExtResource("1_cberm")

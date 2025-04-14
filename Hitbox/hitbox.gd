@@ -4,7 +4,6 @@ signal Damaged(damage: int)
 
 @export var read_all_queue: ReadAllQueue		
 
-
 func TakeDamage(idOfHurtbox: int, damage: int) -> void:
 	if (read_all_queue.checkForMatch(idOfHurtbox)):
 		return

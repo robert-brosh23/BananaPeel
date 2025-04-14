@@ -7,8 +7,6 @@ signal Defeated(experience)
 
 @onready var state_machine = $StateMatchine
 @onready var enemy_follow_state = $StateMatchine/EnemyFollowState
-@onready var attack_animation_player = $Attack/Sprite2D/AnimationPlayer
-@onready var hurtbox = $Attack/Hurtbox
 @export var attack: enemy_attack
 @onready var spriteBody = $Sprite2D
 

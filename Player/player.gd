@@ -4,6 +4,7 @@ class_name Player extends CharacterBody2D
 @export var exp_needed_for_level = 100
 @export var attack: player_attack
 @export var max_hitpoints := 100
+@export var hitbox: Area2D
 
 @onready var level_up_menu = get_tree().get_first_node_in_group("LevelUpMenu")
 @onready var game_over_menu = get_tree().get_first_node_in_group("GameOverMenu")
@@ -24,7 +25,7 @@ var hitpoints: int = max_hitpoints:
 
 func _ready() -> void:
 	experience = 0
-	$Hitbox.Damaged.connect(TakeDamage)
+	hitbox.Damaged.connect(TakeDamage)
 
 func _physics_process(delta: float) -> void:
 	process_controls()
@@ -76,6 +77,21 @@ func play_take_damage_visual_effect():
 	timer.timeout.connect(_on_damage_flash_timer_timeout)
 	add_child(timer)
 	timer.start()
+	timer.timeout.connect(timer.queue_free)
 
 func _on_damage_flash_timer_timeout():
 	spriteBody.modulate = Color(1.0, 1.0, 1.0, 1.0)
+	
+func become_invincible(seconds: float, visible: bool = false, start: bool = false) -> void:
+	if start:
+		hitbox.set_deferred("monitorable", false)
+	var flash_time = .1
+	if !visible and seconds <= flash_time*2:
+		hitbox.set_deferred("monitorable", true)
+		return
+	var tween = get_tree().create_tween()
+	var color = Color(1,1,1,1) if visible else Color(1,1,1,0)
+	
+	# Tween the 'modulate' property to make it flash
+	tween.tween_property(spriteBody, "modulate", color, flash_time)
+	tween.tween_callback(become_invincible.bind(seconds - flash_time, !visible))
