@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://n1g3mtkekmwm"]
+
+[ext_resource type="Script" uid="uid://cxwdm76niyjtw" path="res://Player/Attack/attack_spawner.gd" id="1_bgh1y"]
+
+[node name="AttackSpawner" type="Node2D"]
+script = ExtResource("1_bgh1y")

@@ -18,14 +18,12 @@ func _ready() -> void:
 	player = get_tree().get_first_node_in_group("player")
 	$Hitbox.Damaged.connect(TakeDamage)
 	health = max_health
-	print(modulate)
 
 func _physics_process(delta: float) -> void:
 	move_and_slide()
 
 func TakeDamage(damaged: int) -> void:
 	play_take_damage_visual_effect()
-	print("Damaged! ", damaged)
 	health -= damaged
 	if health <= 0:
 		emit_signal("Defeated", experience_given)

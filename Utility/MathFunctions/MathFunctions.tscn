@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://cp17s22ojho0i"]
+
+[ext_resource type="Script" uid="uid://yvhq4x3ua6vf" path="res://Utility/MathFunctions/math_functions.gd" id="1_0l5w3"]
+
+[node name="MathFunctions" type="Node"]
+script = ExtResource("1_0l5w3")

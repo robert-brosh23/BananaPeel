@@ -2,7 +2,7 @@ class_name Player extends CharacterBody2D
 
 @export var speed = 50.0
 @export var exp_needed_for_level = 100
-@export var attack: player_attack
+@export var attack_spawner: AttackSpawner
 @export var max_hitpoints := 100
 @export var hitbox: Area2D
 
@@ -53,7 +53,6 @@ func process_controls():
 		
 func GainExperience(experience: int):
 	self.experience += experience
-	print("exp gained: ", self.experience)
 	if self.experience >= exp_needed_for_level:
 		level_up()
 	
@@ -61,12 +60,10 @@ func GainExperience(experience: int):
 func level_up() -> void:
 	experience = experience % exp_needed_for_level
 	exp_needed_for_level = exp_needed_for_level + 50
-	printt("level up!\nexp: ", experience, "/", exp_needed_for_level)
 	level_up_menu.level_up()
 	
 func TakeDamage(damaged: int) -> void:
 	play_take_damage_visual_effect()
-	print("Player damaged! ", damaged)
 	hitpoints -= damaged
 		
 func play_take_damage_visual_effect():
