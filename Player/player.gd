@@ -2,7 +2,6 @@ class_name Player extends CharacterBody2D
 
 @export var speed = 50.0
 @export var exp_needed_for_level = 100
-@export var attack_spawner: AttackSpawner
 @export var max_hitpoints := 100
 @export var hitbox: Area2D
 
@@ -10,6 +9,7 @@ class_name Player extends CharacterBody2D
 @onready var game_over_menu = get_tree().get_first_node_in_group("GameOverMenu")
 @onready var spriteBody = $AnimatedSprite2D
 
+var attack_spawner: AttackSpawner
 var experience
 var hitpoints: int = max_hitpoints:
 	set(value):
@@ -26,6 +26,10 @@ var hitpoints: int = max_hitpoints:
 func _ready() -> void:
 	experience = 0
 	hitbox.Damaged.connect(TakeDamage)
+	for child in get_children():
+		if child is AttackSpawner:
+			attack_spawner = child
+			break
 
 func _physics_process(delta: float) -> void:
 	process_controls()

@@ -1,0 +1,7 @@
+[gd_scene load_steps=3 format=3 uid="uid://ddnf2ce4kqu4g"]
+
+[ext_resource type="PackedScene" uid="uid://n1g3mtkekmwm" path="res://Player/Attack/AttackSpawner.tscn" id="1_xu2xj"]
+[ext_resource type="Script" uid="uid://6vs33a0xceas" path="res://Player/Attack/BasicSliceAttack/slice_attack_spawner.gd" id="2_owpx8"]
+
+[node name="SliceAttackSpawner" instance=ExtResource("1_xu2xj")]
+script = ExtResource("2_owpx8")

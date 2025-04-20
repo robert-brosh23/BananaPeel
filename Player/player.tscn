@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://bxy5inm42e7p0" path="res://Assets/sprite_sheet.png" id="1_l8h54"]
 [ext_resource type="PackedScene" uid="uid://c18707hfscfnt" path="res://Player/Attack/BasicSliceAttack/basic_slice_attack.tscn" id="3_btcbx"]
 [ext_resource type="PackedScene" uid="uid://gdei2nsvuf6g" path="res://Hitbox/hitbox.tscn" id="4_gwnis"]
-[ext_resource type="PackedScene" uid="uid://n1g3mtkekmwm" path="res://Player/Attack/AttackSpawner.tscn" id="5_k53q1"]
+[ext_resource type="PackedScene" uid="uid://ddnf2ce4kqu4g" path="res://Player/Attack/BasicSliceAttack/slice_attack_spawner.tscn" id="4_k53q1"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4ntmi"]
 atlas = ExtResource("1_l8h54")
@@ -39,13 +39,12 @@ animations = [{
 radius = 154.0
 height = 600.0
 
-[node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("attack_spawner", "hitbox") groups=["player"]]
+[node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("hitbox") groups=["player"]]
 scale = Vector2(0.2, 0.2)
 collision_layer = 16
 motion_mode = 1
 script = ExtResource("1_4ntmi")
 speed = 1000.0
-attack_spawner = NodePath("AttackSpawner")
 hitbox = NodePath("Hitbox")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -65,6 +64,6 @@ collision_layer = 512
 position = Vector2(8, 4)
 shape = SubResource("CapsuleShape2D_fhl08")
 
-[node name="AttackSpawner" parent="." instance=ExtResource("5_k53q1")]
+[node name="SliceAttackSpawner" parent="." instance=ExtResource("4_k53q1")]
 attack_scene = ExtResource("3_btcbx")
-attack_speed = 30.0
+attack_speed = 100.0
