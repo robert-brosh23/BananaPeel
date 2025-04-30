@@ -1,0 +1,19 @@
+[gd_scene load_steps=5 format=3 uid="uid://iwy7k5pd2kjm"]
+
+[ext_resource type="PackedScene" uid="uid://cla1cjopywul6" path="res://UI_Components/Choice.tscn" id="1_n5sj5"]
+[ext_resource type="Script" uid="uid://trdv6kux65rl" path="res://UI_Components/Choices/get_hulk/hulk_choice.gd" id="2_drelu"]
+[ext_resource type="PackedScene" uid="uid://c2x675ua2pkch" path="res://Player/Augment/Hulk/hulk.tscn" id="3_wptgl"]
+[ext_resource type="Texture2D" uid="uid://dxmajvy5nce5y" path="res://Assets/2d_Sprites/genericItem_color_137.png" id="4_bmisd"]
+
+[node name="HulkChoice" instance=ExtResource("1_n5sj5")]
+script = ExtResource("2_drelu")
+on_hit_buff = ExtResource("3_wptgl")
+
+[node name="TextureRect" parent="MarginContainer/VBoxContainer/CenterContainer" index="0"]
+texture = ExtResource("4_bmisd")
+
+[node name="Title" parent="MarginContainer/VBoxContainer" index="1"]
+text = "Hulk"
+
+[node name="Details" parent="MarginContainer/VBoxContainer" index="2"]
+text = "Increase attack size"

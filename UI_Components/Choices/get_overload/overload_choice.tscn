@@ -1,0 +1,19 @@
+[gd_scene load_steps=5 format=3 uid="uid://d17q5s6ataops"]
+
+[ext_resource type="PackedScene" uid="uid://cla1cjopywul6" path="res://UI_Components/Choice.tscn" id="1_nmyim"]
+[ext_resource type="Script" uid="uid://bngi4w18fbwbn" path="res://UI_Components/Choices/get_overload/get_overload.gd" id="2_1rgq2"]
+[ext_resource type="PackedScene" uid="uid://dl3dga60r13jt" path="res://Player/Augment/Overload/overload.tscn" id="3_3cg2h"]
+[ext_resource type="Texture2D" uid="uid://bs34pdw7rwyby" path="res://Assets/2d_Sprites/genericItem_color_054.png" id="4_1rgq2"]
+
+[node name="OverloadChoice" instance=ExtResource("1_nmyim")]
+script = ExtResource("2_1rgq2")
+on_hit_buff = ExtResource("3_3cg2h")
+
+[node name="TextureRect" parent="MarginContainer/VBoxContainer/CenterContainer" index="0"]
+texture = ExtResource("4_1rgq2")
+
+[node name="Title" parent="MarginContainer/VBoxContainer" index="1"]
+text = "Overload"
+
+[node name="Details" parent="MarginContainer/VBoxContainer" index="2"]
+text = "Spawn 3 attacks, but they cannot be directed"

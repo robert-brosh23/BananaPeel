@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://c2x675ua2pkch"]
+
+[ext_resource type="Script" uid="uid://brnuwrs305mef" path="res://Player/Augment/Hulk/hulk.gd" id="1_p3noy"]
+
+[node name="Hulk" type="Node"]
+script = ExtResource("1_p3noy")

@@ -66,4 +66,4 @@ shape = SubResource("CapsuleShape2D_fhl08")
 
 [node name="SliceAttackSpawner" parent="." instance=ExtResource("4_k53q1")]
 attack_scene = ExtResource("3_btcbx")
-attack_speed = 100.0
+attack_speed = 10.0

@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dl3dga60r13jt"]
+
+[ext_resource type="Script" uid="uid://0swd02tpbgtg" path="res://Player/Augment/Overload/overload.gd" id="1_tdtv6"]
+
+[node name="Overload" type="Node"]
+script = ExtResource("1_tdtv6")

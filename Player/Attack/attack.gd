@@ -6,9 +6,11 @@ signal AttackConnected
 @export var attack_animation_player: AnimationPlayer
 @export var hurtbox = Area2D
 
+var player
 var attack_connected = false
 
 func _ready() -> void:
+	player = get_tree().get_first_node_in_group("player")
 	if !hurtbox:
 		print("Player's attack hurtbox is misconfigured.")
 		return
@@ -20,11 +22,14 @@ func _physics_process(delta: float) -> void:
 	pass
 
 func attack(animation_speed: float):
+	var hulk : Hulk = NodeFunctions.search_for_child_of_type(player, Hulk)
+	if hulk != null:
+		scale = Vector2(hulk.size_multiplier, hulk.size_multiplier)
 	if !attack_animation_player || !hurtbox:
 		print("The animation player or hurtbox is misconfigured.")
 		return
 		
-	direct_weapon()
+	#print(rotation)
 	attack_animation_player.speed_scale = animation_speed
 	hurtbox.setId(Time.get_unix_time_from_system() + (randi() % 1000))
 	attack_animation_player.play("attack")
