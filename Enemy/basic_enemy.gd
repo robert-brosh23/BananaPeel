@@ -11,7 +11,7 @@ signal Defeated(experience)
 @onready var spriteBody = $Sprite2D
 
 var health: int
-var speed = 100
+var speed = 10
 var player
 
 func _ready() -> void:

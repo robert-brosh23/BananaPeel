@@ -118,7 +118,7 @@ tracks/3/keys = {
 "times": PackedFloat32Array(0, 0.0333333, 0.1),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [Vector2(-212.5, -331.25), Vector2(-105, -394), Vector2(87, -355)]
+"values": [Vector2(-21.25, -33.125), Vector2(-10.5, -39.4), Vector2(8.7, -35.5)]
 }
 tracks/4/type = "value"
 tracks/4/imported = false
@@ -140,7 +140,7 @@ _data = {
 }
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_rr44b"]
-radius = 104.98
+radius = 10.5
 
 [node name="Attack" node_paths=PackedStringArray("attack_animation_player", "hurtbox") instance=ExtResource("1_4xdu2")]
 script = ExtResource("2_bglv8")
@@ -149,8 +149,8 @@ hurtbox = NodePath("Hurtbox")
 
 [node name="Sprite2D" type="Sprite2D" parent="." index="0"]
 visible = false
-position = Vector2(-40, -267)
-scale = Vector2(1.42672, 1.42672)
+position = Vector2(-4, -26.7)
+scale = Vector2(0.143, 0.143)
 texture = ExtResource("3_rdj7h")
 hframes = 3
 vframes = 2

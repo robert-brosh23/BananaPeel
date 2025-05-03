@@ -9,10 +9,10 @@
 [ext_resource type="PackedScene" uid="uid://bi5ictmlfutc3" path="res://Enemy/EnemyAttack/EnemySliceAttack/enemy_slice_attack.tscn" id="7_gjeuv"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_47ljh"]
-radius = 105.119
+radius = 10.51
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_gjeuv"]
-radius = 206.061
+radius = 20.61
 
 [node name="basic_enemy" type="CharacterBody2D" node_paths=PackedStringArray("attack")]
 scale = Vector2(0.2, 0.2)
@@ -24,6 +24,7 @@ experience_given = 25
 attack = NodePath("EnemySliceAttack")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.1, 0.1)
 texture = ExtResource("2_w27s0")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

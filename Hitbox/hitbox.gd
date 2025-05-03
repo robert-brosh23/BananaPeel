@@ -9,4 +9,3 @@ func TakeDamage(idOfHurtbox: int, damage: int) -> void:
 		return
 	read_all_queue.push(idOfHurtbox)
 	Damaged.emit(damage)
-	

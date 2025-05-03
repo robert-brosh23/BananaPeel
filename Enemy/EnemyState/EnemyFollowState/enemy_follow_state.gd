@@ -11,5 +11,5 @@ func physics_update(delta: float) -> void:
 	var direction = (player.position - enemy.position).normalized()
 	enemy.velocity = direction * enemy.speed
 	
-	if player.position.distance_to(enemy.position) < 100:
+	if player.position.distance_to(enemy.position) < 10:
 		Transitioned.emit(self, "enemyattackstate")

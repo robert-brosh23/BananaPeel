@@ -1,0 +1,44 @@
+[gd_resource type="AnimationNodeStateMachine" load_steps=10 format=3 uid="uid://bpn10iuowji5q"]
+
+[ext_resource type="AnimationNodeBlendSpace2D" uid="uid://bt45dq86valda" path="res://Player/Animations/player_run_blend.tres" id="1_srdte"]
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_gu6f8"]
+animation = &"idle_down"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_dkpta"]
+animation = &"idle_up"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_lfmf2"]
+animation = &"idle_left"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_pisgm"]
+animation = &"idle_right"
+
+[sub_resource type="AnimationNodeBlendSpace2D" id="AnimationNodeBlendSpace2D_b1ygp"]
+blend_point_0/node = SubResource("AnimationNodeAnimation_gu6f8")
+blend_point_0/pos = Vector2(0, 1)
+blend_point_1/node = SubResource("AnimationNodeAnimation_dkpta")
+blend_point_1/pos = Vector2(0, -1)
+blend_point_2/node = SubResource("AnimationNodeAnimation_lfmf2")
+blend_point_2/pos = Vector2(-1, 0)
+blend_point_3/node = SubResource("AnimationNodeAnimation_pisgm")
+blend_point_3/pos = Vector2(1, 0)
+blend_mode = 1
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_o28un"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_n471f"]
+advance_mode = 2
+advance_expression = "!velocity"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_7emwf"]
+advance_mode = 2
+advance_expression = "velocity"
+
+[resource]
+states/idle/node = SubResource("AnimationNodeBlendSpace2D_b1ygp")
+states/idle/position = Vector2(370, 164)
+states/run/node = ExtResource("1_srdte")
+states/run/position = Vector2(364, 60)
+transitions = ["Start", "run", SubResource("AnimationNodeStateMachineTransition_o28un"), "run", "idle", SubResource("AnimationNodeStateMachineTransition_n471f"), "idle", "run", SubResource("AnimationNodeStateMachineTransition_7emwf")]

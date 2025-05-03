@@ -4,10 +4,10 @@ class_name Player extends CharacterBody2D
 @export var exp_needed_for_level = 100
 @export var max_hitpoints := 100
 @export var hitbox: Area2D
+@export var spriteBody: Sprite2D
 
 @onready var level_up_menu = get_tree().get_first_node_in_group("LevelUpMenu")
 @onready var game_over_menu = get_tree().get_first_node_in_group("GameOverMenu")
-@onready var spriteBody = $AnimatedSprite2D
 
 var attack_spawner: AttackSpawner
 var experience
