@@ -50,7 +50,7 @@ func prepare_attack():
 	do_attack(attack, animation_speed, (get_global_mouse_position() - player.global_position).angle() + PI/2)
 	
 func calculate_attack_time() -> float:
-	return MathFunctions.asymptotic_decay_equation(attack_speed, .15, .05)
+	return 1.0 / attack_speed
 	
 func direct_weapon():
 	var direction = (get_global_mouse_position() - global_position).angle()

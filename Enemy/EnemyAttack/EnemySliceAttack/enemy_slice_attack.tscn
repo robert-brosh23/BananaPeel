@@ -140,6 +140,7 @@ collision_mask = 512
 damage = 10
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox" index="0"]
+z_index = 2
 position = Vector2(-212.5, -331.25)
 rotation = -1.73101
 scale = Vector2(-0.945, -0.945)

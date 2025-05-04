@@ -200,7 +200,6 @@ shape = SubResource("CircleShape2D_fhl08")
 
 [node name="SliceAttackSpawner" parent="." instance=ExtResource("4_k53q1")]
 attack_scene = ExtResource("3_btcbx")
-attack_speed = 10.0
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(0, -12)

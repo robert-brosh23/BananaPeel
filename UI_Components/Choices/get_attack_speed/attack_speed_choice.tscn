@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://covvsfb1q2ni5"]
+
+[ext_resource type="PackedScene" uid="uid://cla1cjopywul6" path="res://UI_Components/Choice.tscn" id="1_83bjg"]
+[ext_resource type="Script" uid="uid://c52iww7c3bggo" path="res://UI_Components/Choices/get_attack_speed/get_attack_speed.gd" id="2_wh7qh"]
+[ext_resource type="Texture2D" uid="uid://cuk0uwg502sra" path="res://Assets/2d_Sprites/genericItem_color_116.png" id="3_wh7qh"]
+
+[node name="Choice" instance=ExtResource("1_83bjg")]
+script = ExtResource("2_wh7qh")
+
+[node name="TextureRect" parent="MarginContainer/VBoxContainer/CenterContainer" index="0"]
+texture = ExtResource("3_wh7qh")
+
+[node name="Title" parent="MarginContainer/VBoxContainer" index="1"]
+text = "Steak + Eggs"
+
+[node name="Details" parent="MarginContainer/VBoxContainer" index="2"]
+text = "Increase your attack speed"

@@ -22,14 +22,12 @@ func _physics_process(delta: float) -> void:
 	pass
 
 func attack(animation_speed: float):
-	var hulk : Hulk = NodeFunctions.search_for_child_of_type(player, Hulk)
-	if hulk != null:
-		scale = Vector2(hulk.size_multiplier, hulk.size_multiplier)
 	if !attack_animation_player || !hurtbox:
 		print("The animation player or hurtbox is misconfigured.")
 		return
+	
+	apply_hulk_multiplier()
 		
-	#print(rotation)
 	attack_animation_player.speed_scale = animation_speed
 	hurtbox.setId(Time.get_unix_time_from_system() + (randi() % 1000))
 	attack_animation_player.play("attack")
@@ -48,3 +46,14 @@ func _on_animation_finished(animation_name: String):
 
 func _attack_connected():
 	attack_connected = true
+	
+func apply_hulk_multiplier():
+	var hulk : Hulk = NodeFunctions.search_for_child_of_type(player, Hulk)
+	if hulk != null:
+		var is_x_flipped = get_attack_is_x_flipped()
+		scale = Vector2(hulk.size_multiplier, hulk.size_multiplier)
+		if is_x_flipped:
+			scale.x *= -1
+
+func get_attack_is_x_flipped():
+	return scale.x < 0

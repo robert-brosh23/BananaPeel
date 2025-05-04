@@ -143,6 +143,7 @@ _data = {
 radius = 10.5
 
 [node name="Attack" node_paths=PackedStringArray("attack_animation_player", "hurtbox") instance=ExtResource("1_4xdu2")]
+z_index = 3
 script = ExtResource("2_bglv8")
 attack_animation_player = NodePath("Sprite2D/AnimationPlayer")
 hurtbox = NodePath("Hurtbox")

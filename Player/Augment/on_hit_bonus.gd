@@ -1,6 +1,6 @@
 extends Node
 
-const ATTACK_BONUS = 1.0
+const ATTACK_MULTIPLIER_BONUS = 0.1
 
 var player: Player
 var attack_spawner: AttackSpawner
@@ -19,9 +19,10 @@ func buff_attack_speed():
 	if stacks >= 6:
 		return
 	stacks+=1
-	attack_spawner.attack_speed += ATTACK_BONUS
-	bonus_tracker += ATTACK_BONUS
-	print("attack speed: ", attack_spawner.attack_speed)
+	
+	var increase = attack_spawner.attack_speed * ATTACK_MULTIPLIER_BONUS
+	attack_spawner.attack_speed += increase
+	bonus_tracker += increase
 
 func reset_attack_speed():
 	stacks = 0
