@@ -4,15 +4,16 @@ signal Defeated(experience)
 
 @export var max_health: int
 @export var experience_given: int
+@export var attack: enemy_attack
 
 @onready var state_machine = $StateMatchine
 @onready var enemy_follow_state = $StateMatchine/EnemyFollowState
-@export var attack: enemy_attack
 @onready var spriteBody = $Sprite2D
 
 var health: int
 var speed = 10
-var player
+var player: Player
+var attacking: bool = false
 
 func _ready() -> void:
 	player = get_tree().get_first_node_in_group("player")
@@ -20,6 +21,11 @@ func _ready() -> void:
 	health = max_health
 
 func _physics_process(delta: float) -> void:
+	if state_machine.active_state is EnemyAttackState:
+		attacking = true
+	else:
+		attacking = false
+	
 	move_and_slide()
 
 func TakeDamage(damaged: int) -> void:

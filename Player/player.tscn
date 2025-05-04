@@ -186,7 +186,7 @@ scale = Vector2(0.2, 0.2)
 collision_layer = 16
 motion_mode = 1
 script = ExtResource("1_4ntmi")
-speed = 1000.0
+speed = 0.0
 hitbox = NodePath("Hitbox")
 spriteBody = NodePath("Sprite2D")
 

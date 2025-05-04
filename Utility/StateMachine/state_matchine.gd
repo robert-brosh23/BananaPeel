@@ -2,7 +2,7 @@ class_name StateMachine extends Node
 
 @export var ready_state: State
 
-var active_state
+var active_state: State
 var states: Dictionary = {}
 
 func _ready() -> void:

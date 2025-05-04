@@ -27,11 +27,13 @@ func physics_update(delta: float) -> void:
 
 func enter() -> void:
 	enemy.velocity = Vector2.ZERO
+	enemy.attack.direct_weapon()
 	attack_delay_timer.start()
 	
 func recoil_finished():
 	if player.position.distance_to(enemy.position) > 10:
 		Transitioned.emit(self, "enemyfollowstate")
 		return
-	attack_delay_timer.start()
+		
+	enter()
 	

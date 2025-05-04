@@ -1,0 +1,45 @@
+[gd_resource type="AnimationNodeStateMachine" load_steps=10 format=3 uid="uid://bd1bk7pdlysel"]
+
+[ext_resource type="AnimationNodeBlendSpace2D" uid="uid://b5ylhocgwvtis" path="res://Enemy/EnemyAnimations/enemy_move.tres" id="1_psr2k"]
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_0ecbd"]
+animation = &"attack_down"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_286vp"]
+animation = &"attack_up"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_4lop5"]
+animation = &"attack_left"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_dt2xa"]
+animation = &"attack_right"
+
+[sub_resource type="AnimationNodeBlendSpace2D" id="AnimationNodeBlendSpace2D_0ecbd"]
+blend_point_0/node = SubResource("AnimationNodeAnimation_0ecbd")
+blend_point_0/pos = Vector2(0, 1)
+blend_point_1/node = SubResource("AnimationNodeAnimation_286vp")
+blend_point_1/pos = Vector2(0, -1)
+blend_point_2/node = SubResource("AnimationNodeAnimation_4lop5")
+blend_point_2/pos = Vector2(-0.5, 0)
+blend_point_3/node = SubResource("AnimationNodeAnimation_dt2xa")
+blend_point_3/pos = Vector2(0.5, 0)
+blend_mode = 1
+sync = true
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_286vp"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_4lop5"]
+advance_mode = 2
+advance_expression = "attacking"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_3g31n"]
+advance_mode = 2
+advance_expression = "!attacking"
+
+[resource]
+states/attack_blend/node = SubResource("AnimationNodeBlendSpace2D_0ecbd")
+states/attack_blend/position = Vector2(714, 144)
+states/move_blend/node = ExtResource("1_psr2k")
+states/move_blend/position = Vector2(442, 144)
+transitions = ["Start", "move_blend", SubResource("AnimationNodeStateMachineTransition_286vp"), "move_blend", "attack_blend", SubResource("AnimationNodeStateMachineTransition_4lop5"), "attack_blend", "move_blend", SubResource("AnimationNodeStateMachineTransition_3g31n")]

@@ -15,7 +15,6 @@ func attack():
 		print("The animation player or hurtbox is misconfigured.")
 		return
 	var attack_speed = calculate_attack_speed()
-	direct_weapon()
 	attack_animation_player.speed_scale = attack_speed
 	hurtbox.setId(Time.get_unix_time_from_system() * 1000 + (randi() % 1000))
 	attack_animation_player.play("attack")
