@@ -11,11 +11,11 @@ func _process(delta: float) -> void:
 		SpawnEnemy()
 
 func SpawnEnemy():
-	var x_pos = randi_range(20, 30)
+	var x_pos = randi_range(100, 150)
 	if randi_range(0,1) == 1:
 		x_pos *= -1
 	x_pos += player.position.x
-	var y_pos = randi_range(20, 30)
+	var y_pos = randi_range(100, 150)
 	if randi_range(0,1) == 1:
 		y_pos *= -1
 	y_pos += player.position.y

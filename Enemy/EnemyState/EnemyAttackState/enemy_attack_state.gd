@@ -31,7 +31,7 @@ func enter() -> void:
 	attack_delay_timer.start()
 	
 func recoil_finished():
-	if player.position.distance_to(enemy.position) > 10:
+	if player.position.distance_to(enemy.position) > 50:
 		Transitioned.emit(self, "enemyfollowstate")
 		return
 		

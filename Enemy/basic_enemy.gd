@@ -11,7 +11,7 @@ signal Defeated(experience)
 @onready var spriteBody = $Sprite2D
 
 var health: int
-var speed = 10
+var speed = 30
 var player: Player
 var attacking: bool = false
 
