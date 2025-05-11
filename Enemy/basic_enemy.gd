@@ -5,6 +5,7 @@ signal Defeated(experience)
 @export var max_health: int
 @export var experience_given: int
 @export var attack: enemy_attack
+@export var damage_label_scene: PackedScene
 
 @onready var state_machine = $StateMatchine
 @onready var enemy_follow_state = $StateMatchine/EnemyFollowState
@@ -31,6 +32,9 @@ func _physics_process(delta: float) -> void:
 func TakeDamage(damaged: int) -> void:
 	play_take_damage_visual_effect()
 	health -= damaged
+	var damage_label: EnemyDamageLabel = damage_label_scene.instantiate()
+	add_child(damage_label)
+	damage_label.playDamageAnimation(damaged)
 	if health <= 0:
 		emit_signal("Defeated", experience_given)
 		queue_free()

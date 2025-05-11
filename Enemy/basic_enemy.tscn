@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://dhq5e7x50yy48"]
+[gd_scene load_steps=25 format=3 uid="uid://dhq5e7x50yy48"]
 
 [ext_resource type="Script" uid="uid://cw5tlda5vkamx" path="res://Enemy/basic_enemy.gd" id="1_c5t6j"]
 [ext_resource type="Texture2D" uid="uid://dwl1crtmnxuhp" path="res://Assets/sprite_sheets/Enemy_044.png" id="2_gjeuv"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://bi5ictmlfutc3" path="res://Enemy/EnemyAttack/EnemySliceAttack/enemy_slice_attack.tscn" id="7_gjeuv"]
 [ext_resource type="AnimationNodeStateMachine" uid="uid://bd1bk7pdlysel" path="res://Enemy/EnemyAnimations/enemy_animation_states.tres" id="8_0ecbd"]
 [ext_resource type="Script" uid="uid://bx34tp57b824b" path="res://Enemy/enemy_animation.gd" id="8_f46gi"]
+[ext_resource type="PackedScene" uid="uid://crqiyr08kh1dh" path="res://Enemy/EnemyLabel/enemy_damage_label.tscn" id="10_286vp"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_47ljh"]
 radius = 10.51
@@ -254,6 +255,7 @@ script = ExtResource("1_c5t6j")
 max_health = 3
 experience_given = 25
 attack = NodePath("EnemySliceAttack")
+damage_label_scene = ExtResource("10_286vp")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(0, -5)

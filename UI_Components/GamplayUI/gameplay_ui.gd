@@ -8,6 +8,7 @@ var gameover_menu: GameOverMenu
 var levelup_menu: LevelUpMenu
 
 func _ready() -> void:
+	visible = true
 	player = get_tree().get_first_node_in_group("player")
 
 func _process(delta: float) -> void:

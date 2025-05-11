@@ -33,6 +33,7 @@ visible = false
 layer = 0
 
 [node name="GameplayUi" parent="GameplayUi" instance=ExtResource("6_272bh")]
+visible = false
 
 [node name="Node2D" parent="." instance=ExtResource("6_7mycd")]
 
