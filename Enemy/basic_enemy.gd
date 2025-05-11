@@ -30,11 +30,8 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 
 func TakeDamage(damaged: int) -> void:
-	play_take_damage_visual_effect()
+	play_take_damage_visual_effect(damaged)
 	health -= damaged
-	var damage_label: EnemyDamageLabel = damage_label_scene.instantiate()
-	add_child(damage_label)
-	damage_label.playDamageAnimation(damaged)
 	if health <= 0:
 		emit_signal("Defeated", experience_given)
 		queue_free()
@@ -45,7 +42,12 @@ func get_attack_cooldown() -> float:
 func try_attack():
 	attack.attack()
 
-func play_take_damage_visual_effect():
+func play_take_damage_visual_effect(damaged: int):
+	var damage_label: EnemyDamageLabel = damage_label_scene.instantiate()
+	get_tree().root.add_child(damage_label)
+	damage_label.position = position
+	damage_label.playDamageAnimation(damaged)
+	
 	spriteBody.modulate = Color(255,255,1.0,1.0)
 	var timer = Timer.new()
 	timer.wait_time = .05  # seconds

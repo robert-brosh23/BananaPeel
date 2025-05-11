@@ -4,14 +4,19 @@ class_name EnemyDamageLabel extends Control
 
 func playDamageAnimation(damage: int) -> void:
 	damage_label.text = str(damage)
-	var tween = get_tree().create_tween()
-	tween.set_ease(Tween.EASE_OUT)
+	var fade_tween = get_tree().create_tween()
 	var color = Color(1,1,1,0)
 	var delay_time = 0.3
 	var fade_time = 0.2
-	tween.finished.connect(_on_tween_finished)
+	fade_tween.finished.connect(_on_tween_finished)
 	
-	tween.tween_property(damage_label, "modulate", color, fade_time).set_delay(delay_time)
+	var move_tween = get_tree().create_tween()
+	move_tween.set_ease(Tween.EASE_IN)
+	var position = Vector2(damage_label.position.x, damage_label.position.y - 10)
+	var move_time = 0.5
+	
+	fade_tween.tween_property(damage_label, "modulate", color, fade_time).set_delay(delay_time)
+	move_tween.tween_property(damage_label, "position", position, move_time)
 
 func _on_tween_finished():
 	queue_free()
