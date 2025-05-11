@@ -7,12 +7,15 @@ class_name LevelUpMenu extends Control
 var upgrades = []
 var upgrades_recurring = []
 var replacement_upgrades = []
+var gameplay_ui: GameplayUi
 
 func _ready() -> void:
 	visible = false
+	gameplay_ui = get_tree().get_first_node_in_group("GameplayUi")
 	initializeUpgrades()
 
 func level_up() -> void:
+	gameplay_ui.experience_bar.value = 100.0
 	get_tree().paused = true
 	choice_1_container.add_child(loadRandomUpgrade())
 	choice_2_container.add_child(loadRandomUpgrade())

@@ -2235,10 +2235,14 @@ sources/6 = SubResource("TileSetAtlasSource_mba0p")
 
 [node name="Node2D" type="Node2D"]
 
-[node name="TileMapLayer" type="TileMapLayer" parent="."]
+[node name="Foliage" type="TileMapLayer" parent="."]
 z_index = -1
 tile_set = SubResource("TileSet_mba0p")
 
-[node name="Base_grass" type="TileMapLayer" parent="."]
+[node name="TileMapLayer" type="TileMapLayer" parent="."]
 z_index = -2
+tile_set = SubResource("TileSet_mba0p")
+
+[node name="Base_grass" type="TileMapLayer" parent="."]
+z_index = -3
 tile_set = SubResource("TileSet_mba0p")

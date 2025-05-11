@@ -1,0 +1,62 @@
+[gd_scene load_steps=5 format=3 uid="uid://cmvppc4g7u5gt"]
+
+[ext_resource type="Script" uid="uid://eonqq5gm18yk" path="res://UI_Components/GamplayUI/gameplay_ui.gd" id="1_hgu5s"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_otywu"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lwcfo"]
+bg_color = Color(0.746642, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hgu5s"]
+bg_color = Color(0.321569, 0.223529, 1, 1)
+
+[node name="GameplayUi" type="Control" node_paths=PackedStringArray("health_bar", "experience_bar") groups=["GameplayUi"]]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_hgu5s")
+health_bar = NodePath("MarginContainer/VBoxContainer/HealthBar")
+experience_bar = NodePath("MarginContainer/VBoxContainer/ExperienceBar")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+offset_right = 170.0
+offset_bottom = 108.0
+color = Color(0.133333, 0.160784, 0.176471, 0.352941)
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 0
+offset_right = 150.0
+offset_bottom = 42.0
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="HealthLabel" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Health"
+
+[node name="HealthBar" type="ProgressBar" parent="MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(150, 15)
+layout_mode = 2
+theme_override_styles/background = SubResource("StyleBoxFlat_otywu")
+theme_override_styles/fill = SubResource("StyleBoxFlat_lwcfo")
+show_percentage = false
+
+[node name="ExperienceLabel" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Exp"
+
+[node name="ExperienceBar" type="ProgressBar" parent="MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(150, 15)
+layout_mode = 2
+theme_override_styles/background = SubResource("StyleBoxFlat_otywu")
+theme_override_styles/fill = SubResource("StyleBoxFlat_hgu5s")
+show_percentage = false
