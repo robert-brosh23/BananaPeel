@@ -30,11 +30,15 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 
 func TakeDamage(damaged: int) -> void:
+	damaged = calculateDamageTaken(damaged)
 	play_take_damage_visual_effect(damaged)
 	health -= damaged
 	if health <= 0:
 		emit_signal("Defeated", experience_given)
 		queue_free()
+		
+func calculateDamageTaken(damaged: int) -> int:
+	return damaged * (.8 + .1 * randi_range(0,4))
 		
 func get_attack_cooldown() -> float:
 	return attack.attack_cooldown

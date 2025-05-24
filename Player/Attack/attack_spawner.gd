@@ -8,6 +8,7 @@ signal DoAttack
 
 # input for decay function
 @export var attack_speed: float = 1.0
+@export var attack_damage: int = 1
 
 var attack_timer: Timer
 
@@ -71,7 +72,7 @@ func calculate_animation_speed(animation_time: float):
 	
 func do_attack(attack: player_attack, animation_speed: float, rotation: float = 0):
 	attack.rotation = rotation
-	attack.attack(animation_speed)
+	attack.attack(animation_speed, attack_damage)
 	
 func do_overload_attack(animation_speed: float, num_attacks: int):
 	for i in range(num_attacks):

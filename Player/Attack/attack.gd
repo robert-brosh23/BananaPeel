@@ -4,7 +4,7 @@ signal AttackMissed
 signal AttackConnected
 
 @export var attack_animation_player: AnimationPlayer
-@export var hurtbox = Area2D
+@export var hurtbox: HurtBox
 
 var player
 var attack_connected = false
@@ -21,13 +21,14 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
 	pass
 
-func attack(animation_speed: float):
+func attack(animation_speed: float, damage: int):
 	if !attack_animation_player || !hurtbox:
 		print("The animation player or hurtbox is misconfigured.")
 		return
 	
+	hurtbox.damage = damage
 	apply_hulk_multiplier()
-		
+	
 	attack_animation_player.speed_scale = animation_speed
 	hurtbox.setId(Time.get_unix_time_from_system() + (randi() % 1000))
 	attack_animation_player.play("attack")
