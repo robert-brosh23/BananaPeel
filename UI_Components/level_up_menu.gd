@@ -35,11 +35,13 @@ func initializeUpgrades() -> void:
 	upgrades.append(preload("res://UI_Components/Choices/get_focus.tscn"))
 	upgrades.append(preload("res://UI_Components/Choices/get_adapt.tscn"))
 	upgrades.append(preload("res://UI_Components/Choices/get_overload/overload_choice.tscn"))
+	upgrades.append(preload("res://UI_Components/Choices/get_max_hp/max_hp_choice.tscn"))
 	
 	upgrades_recurring.append(preload("res://UI_Components/Choices/get_speed.tscn"))
 	upgrades_recurring.append(preload("res://UI_Components/Choices/get_hulk/hulk_choice.tscn"))
 	upgrades_recurring.append(preload("res://UI_Components/Choices/get_attack_speed/attack_speed_choice.tscn"))
 	upgrades_recurring.append(preload("res://UI_Components/Choices/get_attack_damage/attack_damage_choice.tscn"))
+	upgrades_recurring.append(preload("res://UI_Components/Choices/get_medkit/get_medkit_choice.tscn"))
 	
 func loadRandomUpgrade() -> Choice:
 	var numUpgrades = upgrades.size() + upgrades_recurring.size()

@@ -56,5 +56,5 @@ func apply_hulk_multiplier():
 		if is_x_flipped:
 			scale.x *= -1
 
-func get_attack_is_x_flipped():
+func get_attack_is_x_flipped() -> bool:
 	return scale.x < 0
