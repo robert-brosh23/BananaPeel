@@ -7,3 +7,4 @@ func do_attack(attack: player_attack, animation_speed: float, rotation: float = 
 	if attackNumber % 2 == 0:
 		attack.scale.x *= -1
 	super.do_attack(attack, animation_speed, rotation)
+	

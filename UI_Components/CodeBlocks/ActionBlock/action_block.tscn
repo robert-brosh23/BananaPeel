@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://fx233ldm6my"]
+
+[ext_resource type="PackedScene" uid="uid://bxyx8sq87lkgm" path="res://UI_Components/CodeBlocks/code_block.tscn" id="1_q2abe"]
+[ext_resource type="Script" uid="uid://owxv4u6i84gs" path="res://UI_Components/CodeBlocks/ActionBlock/action_block.gd" id="2_whml3"]
+
+[node name="ActionBlock" instance=ExtResource("1_q2abe")]
+script = ExtResource("2_whml3")
+
+[node name="ColorRect" parent="." index="0"]
+color = Color(0.0119155, 0, 0.47893, 1)
+
+[node name="Label" parent="ColorRect/MarginContainer" index="0"]
+text = "Action Block"

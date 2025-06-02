@@ -1,0 +1,40 @@
+[gd_scene load_steps=2 format=3 uid="uid://bxyx8sq87lkgm"]
+
+[ext_resource type="Script" uid="uid://ws4j8kmlaqu1" path="res://UI_Components/CodeBlocks/code_block.gd" id="1_ihefy"]
+
+[node name="CodeBlock" type="Control" node_paths=PackedStringArray("colorRect")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ihefy")
+colorRect = NodePath("ColorRect")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -460.0
+offset_bottom = 46.0
+grow_horizontal = 0
+color = Color(0, 0, 0, 1)
+
+[node name="MarginContainer" type="MarginContainer" parent="ColorRect"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -20.0
+offset_right = 165.0
+offset_bottom = 20.0
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+
+[node name="Label" type="Label" parent="ColorRect/MarginContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 26
+text = "Code Block"

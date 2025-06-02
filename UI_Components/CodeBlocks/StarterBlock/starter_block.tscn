@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://b143rbn1x568u"]
+
+[ext_resource type="PackedScene" uid="uid://bxyx8sq87lkgm" path="res://UI_Components/CodeBlocks/code_block.tscn" id="1_ccitp"]
+[ext_resource type="Script" uid="uid://lonaap8knvhp" path="res://UI_Components/CodeBlocks/StarterBlock/starter_block.gd" id="2_d7ky0"]
+
+[node name="StarterBlock" instance=ExtResource("1_ccitp")]
+script = ExtResource("2_d7ky0")
+
+[node name="Label" parent="ColorRect/MarginContainer" index="0"]
+text = "Starter Block"

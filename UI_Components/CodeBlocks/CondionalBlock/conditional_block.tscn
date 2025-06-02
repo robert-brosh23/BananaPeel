@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://tdr4fawhqekf"]
+
+[ext_resource type="PackedScene" uid="uid://bxyx8sq87lkgm" path="res://UI_Components/CodeBlocks/code_block.tscn" id="1_xp6bo"]
+[ext_resource type="Script" uid="uid://bvi24536vsgu3" path="res://UI_Components/CodeBlocks/CondionalBlock/conditional_block.gd" id="2_tshne"]
+
+[node name="ConditionalBlock" instance=ExtResource("1_xp6bo")]
+script = ExtResource("2_tshne")
+
+[node name="ColorRect" parent="." index="0"]
+color = Color(0.399833, 0.399833, 2.88785e-07, 1)
+
+[node name="Label" parent="ColorRect/MarginContainer" index="0"]
+text = "Conditional Block"

@@ -1,12 +1,12 @@
 [gd_scene load_steps=22 format=3 uid="uid://7qgqljsaajyb"]
 
 [ext_resource type="Script" uid="uid://cfgjfh4p4qti" path="res://Player/player.gd" id="1_4ntmi"]
-[ext_resource type="PackedScene" uid="uid://c18707hfscfnt" path="res://Player/Attack/BasicSliceAttack/basic_slice_attack.tscn" id="3_btcbx"]
 [ext_resource type="PackedScene" uid="uid://gdei2nsvuf6g" path="res://Hitbox/hitbox.tscn" id="4_gwnis"]
-[ext_resource type="PackedScene" uid="uid://ddnf2ce4kqu4g" path="res://Player/Attack/BasicSliceAttack/slice_attack_spawner.tscn" id="4_k53q1"]
 [ext_resource type="Texture2D" uid="uid://tlppu17jm7nq" path="res://Assets/sprite_sheets/Character_076.png" id="5_k53q1"]
 [ext_resource type="Script" uid="uid://djm2ialqvgx86" path="res://Player/player_animation.gd" id="6_fhl08"]
+[ext_resource type="PackedScene" uid="uid://cmvppc4g7u5gt" path="res://UI_Components/GamplayUI/gameplay_ui.tscn" id="6_od3ui"]
 [ext_resource type="AnimationNodeStateMachine" uid="uid://bpn10iuowji5q" path="res://Player/Animations/player_animation_states.tres" id="6_vtle1"]
+[ext_resource type="PackedScene" uid="uid://dfyfcvqwnljdm" path="res://UI_Components/CodeBlocks/PlayerScriptBoard/player_script_board.tscn" id="7_vtle1"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_fhl08"]
 radius = 18.0
@@ -196,10 +196,6 @@ visible = false
 position = Vector2(4.76837e-07, 2.38419e-07)
 shape = SubResource("CircleShape2D_fhl08")
 
-[node name="SliceAttackSpawner" parent="." instance=ExtResource("4_k53q1")]
-attack_scene = ExtResource("3_btcbx")
-attack_damage = 10
-
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(0, -12)
 texture = ExtResource("5_k53q1")
@@ -228,3 +224,10 @@ parameters/TimeScale/scale = 1.0
 script = ExtResource("6_fhl08")
 player = NodePath("..")
 animation_tree = NodePath("../AnimationTree")
+
+[node name="GameplayUi" type="CanvasLayer" parent="."]
+layer = 0
+
+[node name="GameplayUi" parent="GameplayUi" instance=ExtResource("6_od3ui")]
+
+[node name="PlayerScriptBoard" parent="GameplayUi" instance=ExtResource("7_vtle1")]

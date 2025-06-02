@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://bs5stq0rxupvv"]
+
+[ext_resource type="PackedScene" uid="uid://tdr4fawhqekf" path="res://UI_Components/CodeBlocks/CondionalBlock/conditional_block.tscn" id="1_c36wb"]
+[ext_resource type="Script" uid="uid://bu0cuwmdryfel" path="res://UI_Components/CodeBlocks/CondionalBlock/NumEnemiesPresentCondionalBlock/NumEnemiesPresentConditionalBlock.gd" id="2_ccn41"]
+
+[node name="NumEnemiesPresentConditionalBlock" instance=ExtResource("1_c36wb")]
+script = ExtResource("2_ccn41")
+
+[node name="Label" parent="ColorRect/MarginContainer" index="0"]
+text = "IF enemies present > 5"

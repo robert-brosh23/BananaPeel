@@ -1,0 +1,9 @@
+[gd_scene load_steps=4 format=3 uid="uid://n43im32o4x3b"]
+
+[ext_resource type="PackedScene" uid="uid://bcv3h7hjfufke" path="res://Player/Attack/NewAttackSpawner/NewAttackSpawner.tscn" id="1_1alnc"]
+[ext_resource type="Script" uid="uid://bebj5bqn2dkql" path="res://Player/Attack/NewAttackSpawner/NewSliceAttackSpawner/new_slice_attack_spawner.gd" id="2_675d6"]
+[ext_resource type="PackedScene" uid="uid://c18707hfscfnt" path="res://Player/Attack/BasicSliceAttack/basic_slice_attack.tscn" id="3_675d6"]
+
+[node name="NewSliceAttackSpawner" instance=ExtResource("1_1alnc")]
+script = ExtResource("2_675d6")
+attack_scene = ExtResource("3_675d6")

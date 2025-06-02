@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=4 uid="uid://bpk3qmwysh4ll"]
+[gd_scene load_steps=7 format=4 uid="uid://bpk3qmwysh4ll"]
 
 [ext_resource type="PackedScene" uid="uid://7qgqljsaajyb" path="res://Player/player.tscn" id="1_ig7tw"]
 [ext_resource type="PackedScene" uid="uid://btjyi5runam8l" path="res://Enemy/EnemySpawner/enemy_spawner.tscn" id="2_0xm2m"]
@@ -6,7 +6,6 @@
 [ext_resource type="PackedScene" uid="uid://ds1wu8dy7hei8" path="res://UI_Components/level_up_menu.tscn" id="4_lquwl"]
 [ext_resource type="PackedScene" uid="uid://b6sws06vx86x7" path="res://UI_Components/game_over_menu.tscn" id="5_7mycd"]
 [ext_resource type="PackedScene" uid="uid://h21lon2htoa0" path="res://Assets/TileMaps/Grass-02.tscn" id="6_7mycd"]
-[ext_resource type="PackedScene" uid="uid://cmvppc4g7u5gt" path="res://UI_Components/GamplayUI/gameplay_ui.tscn" id="6_272bh"]
 
 [node name="Node2D" type="Node2D"]
 
@@ -27,12 +26,6 @@ player = NodePath("../Player")
 visible = false
 
 [node name="LevelUpMenu" parent="Menu" instance=ExtResource("4_lquwl")]
-visible = false
-
-[node name="GameplayUi" type="CanvasLayer" parent="."]
-layer = 0
-
-[node name="GameplayUi" parent="GameplayUi" instance=ExtResource("6_272bh")]
 visible = false
 
 [node name="Node2D" parent="." instance=ExtResource("6_7mycd")]
