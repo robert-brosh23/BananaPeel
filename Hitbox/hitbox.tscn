@@ -10,4 +10,3 @@ script = ExtResource("1_p7cpr")
 read_all_queue = NodePath("ReadAllQueue")
 
 [node name="ReadAllQueue" parent="." instance=ExtResource("2_l2ejj")]
-size = 30
